@@ -3,6 +3,7 @@ using Microsoft.Data.Sqlite;
 using Newtonsoft.Json;
 using UnicornVentAutomationEfficiency.Entities;
 using UnicornVentAutomationEfficiency.Models;
+using Z.Dapper.Plus;
 
 namespace UnicornVentAutomationEfficiency;
 
@@ -49,7 +50,7 @@ class Program
 
             if (viewRows.Count == 0)
             {
-                Console.WriteLine("Количество строк в промежуточном представление = 0. Выход");
+                Console.WriteLine("Количество строк в промежуточном представлении = 0. Выход");
                 return;
             }
 
@@ -101,6 +102,7 @@ class Program
 
                     // Рассчитываем эффективность
                     var efficiencyPct = (a.Co2Ppm - co2PpmMin) / a.Co2Ppm * 100;
+                    efficiencyPct = Math.Round(efficiencyPct, 1);
 
                     DateTime ventOffTs = DateTime.Parse(b.Ts);
                     DateTime ventOnTs = DateTime.Parse(a.Ts);
@@ -114,9 +116,8 @@ class Program
                         {
                             VentOnTs = ventOnTs.ToString("yyyy-MM-dd HH:mm:ss"),
                             VentOffTs = ventOffTs.ToString("yyyy-MM-dd HH:mm:ss"),
-                            Complex = a.Complex,
+                            ComplexId = a.ComplexId,
                             BuildingId = a.BuildingId,
-                            Building = a.Building,
                             ApartmentId = a.ApartmentId,
                             ApartmentNo = a.ApartmentNo,
                             Co2PpmMin = co2PpmMin,
@@ -132,25 +133,35 @@ class Program
             }
 
             Console.WriteLine($"Количество строк в витрине: {efficiencyRows.Count}");
-
-
-            // connection.Execute(
-            //     """
-            //     CREATE TABLE IF NOT EXISTS m_vent_automation_efficiency (
-            //         vent_on_ts TEXT NOT NULL,
-            //         vent_off_ts TEXT NOT NULL,
-            //         building_id INTEGER NOT NULL,
-            //         building TEXT NOT NULL,
-            //         complex TEXT NOT NULL,
-            //         apartment_id INTEGER NOT NULL,
-            //         apartment_no TEXT NOT NULL,
-            //         co2_ppm_min REAL NOT NULL,
-            //         efficiency_pct REAL NOT NULL,
-            //         FOREIGN KEY (building_id) REFERENCES building(building_id),
-            //         FOREIGN KEY (apartment_id) REFERENCES apartment(apartment_id)
-            //     )
-            //     """
-            // );
+            
+            // Пересоздаем витрину, обновляя схему и очищая данные
+            connection.Execute(
+                """
+                DROP TABLE IF EXISTS m_vent_automation_efficiency;
+                CREATE TABLE IF NOT EXISTS m_vent_automation_efficiency (
+                    vent_on_ts TEXT NOT NULL,
+                    vent_off_ts TEXT NOT NULL,
+                    building_id INTEGER NOT NULL,
+                    complex_id TEXT NOT NULL,
+                    apartment_id INTEGER NOT NULL,
+                    apartment_no TEXT NOT NULL,
+                    co2_ppm_min REAL NOT NULL,
+                    efficiency_pct REAL NOT NULL,
+                    duration_hours INTEGER NOT NULL,
+                    FOREIGN KEY (building_id) REFERENCES building(building_id),
+                    FOREIGN KEY (apartment_id) REFERENCES apartment(apartment_id)
+                )
+                """
+            );
+            
+            // Для множественной вставки будем использовать пакет DapperPlus.
+            // Привяжем сущность и свойства к соответствующим столбцам
+            DapperPlusManager.Entity<EfficiencyRow>().Table("m_vent_automation_efficiency");
+            
+            // Добавляем записи
+            connection.BulkInsert(efficiencyRows);
+            
+            connection.Close();
         }
     }
 }

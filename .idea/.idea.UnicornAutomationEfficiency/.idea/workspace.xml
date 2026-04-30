@@ -7,7 +7,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ab38815c-6fa5-43d3-97d5-8a2115f54ca9" name="Changes" comment="" />
+    <list default="true" id="ab38815c-6fa5-43d3-97d5-8a2115f54ca9" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.UnicornAutomationEfficiency/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.UnicornAutomationEfficiency/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/Entities/EfficiencyRow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/Entities/EfficiencyRow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/Entities/ViewRow.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/Entities/ViewRow.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/UnicornVentAutomationEfficiency.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/UnicornVentAutomationEfficiency/UnicornVentAutomationEfficiency.csproj" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,6 +23,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;vefixx&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/vefixx/UnicornVentAutomationEfficiency.git&quot;,
+    &quot;accountId&quot;: &quot;936efccb-95d7-48d1-a4a3-60d0f463b2a5&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/UnicornVentAutomationEfficiency/Entities/EfficiencyRow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/UnicornVentAutomationEfficiency/Entities/ViewRow.cs" root0="FORCE_HIGHLIGHTING" />
@@ -31,9 +50,10 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
-    &quot;.NET Project.UnicornAutomationEfficiency.executor&quot;: &quot;Debug&quot;,
+    &quot;.NET Project.UnicornAutomationEfficiency.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/dev/mcsreport&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -75,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1777471335369</updated>
-      <workItem from="1777471336578" duration="9075000" />
+      <workItem from="1777471336578" duration="10906000" />
     </task>
     <servers />
   </component>
@@ -106,13 +126,26 @@
           <line>133</line>
           <properties documentPath="E:\vefixx\unicorn\UnicornAutomationEfficiency\UnicornVentAutomationEfficiency\Program.cs" containingFunctionPresentation="Method 'Main'">
             <startOffsets>
-              <option value="5782" />
+              <option value="5756" />
             </startOffsets>
             <endOffsets>
-              <option value="5855" />
+              <option value="5829" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/UnicornVentAutomationEfficiency/Program.cs</url>
+          <line>157</line>
+          <properties documentPath="E:\vefixx\unicorn\UnicornAutomationEfficiency\UnicornVentAutomationEfficiency\Program.cs" containingFunctionPresentation="Method 'Main'">
+            <startOffsets>
+              <option value="6930" />
+            </startOffsets>
+            <endOffsets>
+              <option value="7010" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
